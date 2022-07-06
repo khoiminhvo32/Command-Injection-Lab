@@ -30,7 +30,6 @@
         </form>
         --------------------------------------------------------- 
 
-
 <?php
 function check_input($input, $level){
     switch($level){
@@ -52,7 +51,6 @@ echo "<pre>";
 echo "<b>Selected level:</b> Level $level \n";
 echo "<b>Your input:</b> $command\n";
 echo "<b>[DEBUG]:</b> $command\n";
-
 
 echo "</pre>";
 ?>
