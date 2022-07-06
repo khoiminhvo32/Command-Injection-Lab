@@ -15,4 +15,4 @@ RUN chmod +t -R /var/www/html/
 RUN apt-get update -y
 
 # setup flag
-RUN echo '😲 This is flag: b38e625204bd8d09089d3eacc3a9c862 😱' > /flag_file
+RUN echo '😲 This is flag: MinKhoy{Go0d_jOb!!} 😱' > /flag_file
