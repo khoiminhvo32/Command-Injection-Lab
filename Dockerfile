@@ -13,11 +13,6 @@ RUN find . -type d -exec chmod 750 {} \;
 # add sticky bit to prevent delete files
 RUN chmod +t -R /var/www/html/
 RUN apt-get update -y
-# RUN apt-get install cowsay figlet toilet fortune wget -y
-# RUN ln -s /usr/games/cowsay /usr/bin/
-# RUN ln -s /usr/games/cowthink /usr/bin/
-# RUN ln -s /usr/games/fortune /usr/bin/
 
-RUN echo '🥷: This is flag: b38e625204bd8d09089d3eacc3a9c862' > /flag_file
 # setup flag
-# RUN echo "CBJS{XXXXXXXXXXXXXXXXXXX}" > /8byxc78qy-secret.txt
+RUN echo '🥷: This is flag: b38e625204bd8d09089d3eacc3a9c862' > /flag_file
