@@ -46,10 +46,10 @@ function check_input($input, $level){
 $command = $_GET['command'];
 $level = $_GET['level'];
 
-$command = check_input($command, $level);
 echo "<pre>";
 echo "<b>Selected level:</b> Level $level \n";
 echo "<b>Your input:</b> $command\n";
+$command = check_input($command, $level);
 echo "<b>[DEBUG]:</b> $command\n";
 
 echo "</pre>";
