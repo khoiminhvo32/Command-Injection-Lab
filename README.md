@@ -5,4 +5,4 @@ My first PHP Command Inject Lab
 
 How to use: Open the project in your VSCode (or something like VSCode), open terminal, run `docker-compose up` and then go to http://localhost:5555/
 
-Reference for new.php: https://medium.com/@roshancp/command-execution-preg-replace-php-function-exploit-62d6f746bda4
+Reference for /new.php: https://medium.com/@roshancp/command-execution-preg-replace-php-function-exploit-62d6f746bda4
