@@ -18,7 +18,9 @@
             <select name="level" id="level">
                 <option value="1" selected>Level 1</option>
                 <option value="2">Level 2</option>
-                <!-- <option value="3">Level 3</option> -->
+                <option value="3">Level 3</option>
+                <option value="4">Level 4</option>
+                <option value="5">Level 5</option>
             </select>
             </div>
             <div class="resp-textbox">
@@ -32,6 +34,36 @@
 
 <?php
 function check_input($input, $level){
+    if (preg_match("/on.*=/i", $input)){
+        die("No XSS here plsssss!!!!");
+    }
+    if (preg_match("/javascript/i", $input)){
+        die("No XSS here plsssss!!!!");
+    }
+    if (preg_match("/script/i", $input)){
+        die("No XSS here plsssss!!!!");
+    }
+    if (preg_match("/img/i", $input)){
+        die("No XSS here plsssss!!!!");
+    }
+    if (preg_match("/svg/i", $input)){
+        die("No XSS here plsssss!!!!");
+    }
+    if (preg_match("/iframe/i", $input)){
+        die("No XSS here plsssss!!!!");
+    }
+    if (preg_match("/.*avascri.*/i", $input)){
+        die("No XSS here plsssss!!!!");
+    }
+    if (preg_match("/src/i", $input)){
+        die("No XSS here plsssss!!!!");
+    }
+    if (preg_match("/href/i", $input)){
+        die("No XSS here plsssss!!!!");
+    }
+    if (preg_match("/style/i", $input)){
+        die("No XSS here plsssss!!!!");
+    }
     switch($level){
         case 1:
             $input = addslashes($input);
@@ -40,6 +72,23 @@ function check_input($input, $level){
             $input = addslashes($input);
             $input = preg_replace("/[;]/", "", $input);
             return $input;
+        case 3:
+            $input = addslashes($input);
+            $input = preg_replace("/[;]/", "", $input);
+            $input = preg_replace("/ /", "", $input);
+            return $input;
+        case 4:
+            $input = addslashes($input);
+            $input = preg_replace("/[;]/", "", $input);
+            $input = preg_replace("/ /", "", $input);
+            $input = preg_replace("/[#]/", "", $input);
+            return $input;
+        case 5:
+            $input = addslashes($input);
+            $input = preg_replace("/[;\/]/", "", $input);
+            $input = preg_replace("/ /", "", $input);
+            $input = preg_replace("/[#]/", "", $input);
+            return $input;
     }
 }
 
@@ -47,6 +96,7 @@ $command = $_GET['command'];
 $level = $_GET['level'];
 
 echo "<pre>";
+
 echo "<b>Selected level:</b> Level $level \n";
 echo "<b>Your input:</b> $command\n";
 $command = check_input($command, $level);
@@ -60,8 +110,7 @@ echo "</pre>";
 echo "<pre>";
 
 $command = <<<EOF
-    echo 'You have just input "$command", hehehehe!'
-    echo "You will need more effort to get my flag bleeeeee!"
+    echo 'You have just input "$command", hehehehe!\nYou will need more effort to get my flag bleeeeee!'
     EOF;
 passthru($command);
 echo "</pre>";
