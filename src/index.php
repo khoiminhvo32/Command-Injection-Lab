@@ -109,12 +109,23 @@ echo "</pre>";
 <?php
 echo "<pre>";
 
-$command = <<<EOF
-    echo 'You have just input "$command", hehehehe!\nYou will need more effort to get my flag bleeeeee!'
-    EOF;
-passthru($command);
+$command = "echo 'You have just input $command, hehehehe!\nYou will need more effort to get my flag bleeeeee!'";
+
+if ($level == 5){
+    passthru($command);
+    echo '<div><pre style="color:crimson">Only click this after you have successfully solved all 5 levels</pre><button id="myButton" class="button" style="color:#e8c99b; font-size:large; border-radius:10px; border-color:crimson; background-color:crimson;">Next Page</button></div>';
+} else {
+    passthru($command);
+}
+
 echo "</pre>";
 ?>
+    <script>
+        url = new URL(origin);
+        document.getElementById("myButton").onclick = function(){
+            location.href = url + "new.php";
+        }
+    </script>
     </div>
 </body>
 
