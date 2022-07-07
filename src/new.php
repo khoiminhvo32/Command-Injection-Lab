@@ -1,5 +1,5 @@
 <html>
-
+    <!-- Remote Code Execution -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +13,7 @@
         <pre>This lab is a demo of a real-case study, developers used this technique to replace characters in mails to filter bad words.
         (The technique is old, no more used nowadays)</pre>
     </div>
+    <button id="myButton" class="button" style="color:#e8c99b; font-size:large; border-radius:10px; border-color:crimson; background-color:crimson;">PHP INFO</button>
     <div class="column" style="color:crimson">
         <form method=get action="new.php">
             <div class="level">
@@ -30,6 +31,12 @@
             <input type=submit value="Submit">
             </div>
         </form>
+        <script>
+            url = new URL(origin);
+            document.getElementById("myButton").onclick = function(){
+                location.href = url + "phpInfo.php";
+            }
+        </script>
         --------------------------------------------------------- 
 
 <?php
