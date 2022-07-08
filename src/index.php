@@ -34,36 +34,9 @@
 
 <?php
 function check_input($input, $level){
-    if (preg_match("/on.*=/i", $input)){
+    if (preg_match("/on.*=|javascript|script|img|svg|iframe|.*avascri.*|src|href|style/i", $input)){
         die("No XSS here plsssss!!!!");
-    }
-    if (preg_match("/javascript/i", $input)){
-        die("No XSS here plsssss!!!!");
-    }
-    if (preg_match("/script/i", $input)){
-        die("No XSS here plsssss!!!!");
-    }
-    if (preg_match("/img/i", $input)){
-        die("No XSS here plsssss!!!!");
-    }
-    if (preg_match("/svg/i", $input)){
-        die("No XSS here plsssss!!!!");
-    }
-    if (preg_match("/iframe/i", $input)){
-        die("No XSS here plsssss!!!!");
-    }
-    if (preg_match("/.*avascri.*/i", $input)){
-        die("No XSS here plsssss!!!!");
-    }
-    if (preg_match("/src/i", $input)){
-        die("No XSS here plsssss!!!!");
-    }
-    if (preg_match("/href/i", $input)){
-        die("No XSS here plsssss!!!!");
-    }
-    if (preg_match("/style/i", $input)){
-        die("No XSS here plsssss!!!!");
-    }
+    } 
     switch($level){
         case 1:
             $input = addslashes($input);
@@ -79,15 +52,13 @@ function check_input($input, $level){
             return $input;
         case 4:
             $input = addslashes($input);
-            $input = preg_replace("/[;]/", "", $input);
+            $input = preg_replace("/[#;]/", "", $input);
             $input = preg_replace("/ /", "", $input);
-            $input = preg_replace("/[#]/", "", $input);
             return $input;
         case 5:
             $input = addslashes($input);
-            $input = preg_replace("/[;\/]/", "", $input);
+            $input = preg_replace("/[#;\/]/", "", $input);
             $input = preg_replace("/ /", "", $input);
-            $input = preg_replace("/[#]/", "", $input);
             return $input;
     }
 }
